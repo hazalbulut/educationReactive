@@ -1,0 +1,15 @@
+<h1>{{ product.name }} - {{ product.price }} TL </h1>
+<h3>Tebrikler!!!!</h3> Bu {{ product.name }} dünyanın en güzeli.
+<br>
+<br>
+<button (click)="deleteProduct()"> Silmek için tıklayınız </button>
+<button (click)="increasePrice()"> Fiyatı arttır %10</button>
+<button (click)="decreasePrice()"> Fiyatı azalt %10</button>
+
+
+
+<h2>
+    Ayın Ürünü
+</h2>
+
+<product-item [showDeleteButton]="false" [product]="bestProduct" [index]="0"></product-item>
