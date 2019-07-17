@@ -1,0 +1,6 @@
+<div class="product-item" *ngIf="showItem">
+    <a routerLink="product-detail/{{product.id}}"><span class="index">{{ index + 1 }}</span>{{ product.name }}
+        -
+        {{ product.price }} TL</a>
+    <button *ngIf="showDeleteButton" class="btn btn-delete" (click)="deleteProductPI(product.id)">Sil</button>
+</div>
