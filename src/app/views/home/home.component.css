@@ -1,0 +1,16 @@
+ul {
+    text-align: left;
+    list-style-type: none;
+}
+
+ol {
+    text-align: left;
+}
+
+.product-form {
+    min-height: 100px;
+}
+
+.product-list {
+    position: relative;
+}

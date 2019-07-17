@@ -1,0 +1,52 @@
+<div style="text-align:center">
+    <h1>
+        Welcome to {{ title }}!
+    </h1>
+
+    <div class="product-form">
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit(productForm.value, productForm.valid)">
+
+            <label for="name"> Ürün Adı: </label>
+            <input type="text" id="name" formControlName="name" required>
+
+            <label>
+                Ürün Fiyatı:
+                <input type="number" formControlName="price" (click)="cleanPrice()">
+            </label>
+
+            <!-- <button type="submit" [disabled]="!productForm.valid">Gönder</button> -->
+            <button type="submit">Gönder</button>
+            <br>
+            <small [hidden]="productForm.controls.name.valid">Ürün adı en az 3 karakter, en fazla 50 karakter
+                olmalıdır.</small>
+            <br>
+            <small [hidden]="productForm.controls.price.valid">Ürün fiyatı 1000 den çok olamaz.</small>
+            <div *ngIf="productForm.controls.name.invalid && !productForm.controls.name.pristine">
+                <p *ngIf="productForm.controls.name.errors.minlength">Password should be at least 6 characters.</p>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="product-list">
+        <div *ngFor="let el of products.data;let i=index">
+            <product-item [product]="el" [index]="i" (deleteProductAction)="deleteProductHome($event)"></product-item>
+        </div>
+    </div>
+
+
+    <div>
+        <hr>
+        <span>Toplam Ürün: {{ products.totalCount }} </span> <br>
+        <span>Son Eklenen Ürün: {{ products.lastAddedName }} </span> <br>
+        <span>Son Silinen Ürün: {{ products.lastDeletedName }} </span>
+    </div>
+
+
+    <h2>
+        Ayın Ürünü
+    </h2>
+    <product-item [showDeleteButton]="false" [product]="bestProduct" [index]="0"></product-item>
+
+    <a routerLink="example"> Örnekler sayfasına gidin</a>
+</div>
