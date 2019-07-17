@@ -6,6 +6,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductItemModule } from 'src/app/components/product-item/product-item.module';
+import { ProductFormModule } from 'src/app/components/product-form/product-form.module';
 
 @NgModule({
     imports: [
@@ -14,6 +15,7 @@ import { ProductItemModule } from 'src/app/components/product-item/product-item.
         RouterModule,
         HomeRoutingModule,
         ProductItemModule,
+        ProductFormModule,
         ReactiveFormsModule
     ],
     declarations: [
